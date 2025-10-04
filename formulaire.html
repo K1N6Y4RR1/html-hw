@@ -6,21 +6,22 @@
     <title>Log In</title>
     <style>
         body {
-            text-align: center;
             background-color: violet;
             background-image:url(./TUFF.png);
             background-size:cover;
+            background-attachment: fixed;
             background-repeat:no-repeat;
+            /* The background image does not repeat, covers the full screen and does not  In case the screen is too big for the background image, the background colour is used to fill the missing area. */
         }
-        #bomb {
+        #formulaire {
+            text-align: center;
             width: 300px;
             height:150px;
             margin:auto;
             margin-top: 300px;
             padding-top:50px;
-            border: 2px solid violet;
-            background-image:url(./TUFF.png);
-            background-size:cover;
+            border: 2px solid rgb(80, 9, 80);
+            background-image:radial-gradient(violet,rgb(172, 64, 172),purple);
             color:white;
             padding:50px;
             border-radius: 20%;
@@ -29,33 +30,34 @@
 </head>
 
 <body>
-    <div id="bomb" onclick="quiz()"> 
-        Best villain in Jojo's? <br> <input type = 'text' id = 'username'> <br> <!-- mustard-->
-        Password: <br> <input type = 'password' id = 'password'> <br>
-        Password Again: <br> <input type = 'password' id = 'again'> <br>
-        <input type="button" value="Accept" onclick="formulaire(); return false;">
+    <div id="formulaire" onclick="quiz()"> 
+        Username :  <br> <input type = 'text' id = 'username'> <br> <!-- mustard-->
+        Password : <br> <input type = 'password' id = 'password'> <br>
+        Repeat your password : <br> <input type = 'password' id = 'again'> <br>
+        <input type="button" value="Accept" onclick="answers(); return false;">
     </div>
 
     <script>
         function quiz() {
         }
-        function formulaire() {
+        function answers() {
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
             var again = document.getElementById('again').value;
             console.log(username, password, again);
             if (username!=='' && password!== '' && again!=='') {
-                if (username=== 'bob') {
-                    alert('CORRECT')
-                    if (password.length >= 8) {
-                        if (password === again) {
-                            alert('good pass')
-                            window.location.href = 'yoshikagekira.html';
-                        } else {
-                            alert('passwords do not match')
-                        }
+                if (password.length >= 8) {
+                    if (password === again) {
+                        alert('Hello ' + username + '. Welcome to the site.')
+                        window.location.href = 'mainpage.html';
+                    } else {
+                        alert('Passwords do not match.')
                     }
+                } else {
+                    alert("Your password must be 8 characters or more.")
                 }
+            } else {
+                alert("Fill out all the areas before continuing.")
             }
         }
     </script>
