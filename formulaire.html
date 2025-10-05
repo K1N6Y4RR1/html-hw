@@ -11,43 +11,93 @@
             background-size:cover;
             background-attachment: fixed;
             background-repeat:no-repeat;
-            /* The background image does not repeat, covers the full screen and does not  In case the screen is too big for the background image, the background colour is used to fill the missing area. */
+            /* The background image does not repeat, covers the full screen and does not move when scrolling. In case the screen is too big for the background image, the background colour is used to fill the missing area. */
         }
         #formulaire {
             text-align: center;
-            width: 300px;
-            height:150px;
+            width: 250px;
+            height:250px;
             margin:auto;
             margin-top: 300px;
-            padding-top:50px;
             border: 2px solid rgb(80, 9, 80);
-            background-image:radial-gradient(violet,rgb(172, 64, 172),purple);
+            background-image:radial-gradient(rgb(245, 150, 245),rgb(192, 71, 192),purple);
             color:white;
-            padding:50px;
+            padding: 20px;
             border-radius: 20%;
+            font-family: "papyrus";
+        }
+        #title {
+            font-family: "papyrus";
+            font-size: 30px;
+        }
+        h1 {
+            margin:0px;
+            padding:0px;
+        }
+        p {
+            margin:0px;
+            padding:0px;
         }
     </style>
 </head>
 
 <body>
+
     <div id="formulaire" onclick="quiz()"> 
-        Username :  <br> <input type = 'text' id = 'username'> <br> 
-        Password : <br> <input type = 'password' id = 'password'> <br>
-        Repeat your password : <br> <input type = 'password' id = 'again'> <br>
-        <input type="button" value="Accept" onclick="answers(); return false;">
+        <h1 id="title"> Log In </h1>
+        Username :  <br> 
+        <input type = 'text' id = 'username'> <br> 
+        Password :
+        <br> <input type = 'password' id = 'password'> 
+        <input type = "checkbox" id = "visibility" onclick="setVisibility()"><br>
+        Repeat your password :
+        <br> <input type = 'password' id = 'password_again'> 
+        <input type = "checkbox" id = "visibility" onclick="setVisibilityAgain()"><br> 
+        <input type="button" value="Accept" onclick="answers(); return false;">  <br>
+        Note : The password must be 8 characters or more.
+    </div>
+    <div style="height:100px; width:150px; margin:auto; margin-top:1500px; text-align:center; color:aliceblue;">
+        <img src = 'chibi.png' alt="chibi koshikage kira" style="height:150px;" onclick="chibiSound()">
+        <audio src="firstbomb.mp3" id="explosion"></audio>
+        <p style="padding-left:0px;">click me for a surprise</p>
     </div>
 
+
+    </div>
+
+
     <script>
+        function chibiSound() {
+            let explosion = document.getElementById('explosion');
+            explosion.load();
+            explosion.play();
+    }
+        function setVisibility() {
+            var password = document.getElementById("password");
+            if (password.type === "password") {
+                password.type = "text";
+            } else {
+                password.type = "password"
+            }
+        }
+        function setVisibilityAgain() {
+            var password = document.getElementById("password_again");
+            if (password_again.type === "password") {
+                password_again.type = "text";
+            } else {
+                password_again.type = "password"
+            }
+        }
         function quiz() {
         }
         function answers() {
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
-            var again = document.getElementById('again').value;
-            console.log(username, password, again);
-            if (username!=='' && password!== '' && again!=='') {
+            var password_again = document.getElementById('password_again').value;
+            console.log(username, password, password_again);
+            if (username!=='' && password!== '' && password_again!=='') {
                 if (password.length >= 8) {
-                    if (password === again) {
+                    if (password === password_again) {
                         alert('Hello ' + username + '. Welcome to the site.')
                         window.location.href = 'mainpage.html';
                     } else {
@@ -61,7 +111,6 @@
             }
         }
     </script>
-
 </body>
 </html>
 
