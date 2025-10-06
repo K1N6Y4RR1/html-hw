@@ -6,6 +6,7 @@
     <title>Main Page</title>
 </head>
 <body>
+    <p id="value"></p>
     <div>
         <input type = "button" value= "Go Back to Log In" onclick = "location.href = 'formulaire.html';">  <!-- When clicking on the button, you go back to the log in page. location.href sets the URL of the current page that the person is viewing. -->
     </div>
@@ -17,5 +18,12 @@
     <div style="height:100px; width:150px; margin:auto;">
         <image src="part4-jojo.gif" style="height:150px; width:150px; margin:auto;"> </image>
     </div>
+    <script>
+        //when the page loads, it takes the username from the local storage and writes it.
+        window.onload = function() {
+            var value = localStorage.getItem('myValue');
+            document.getElementById("value").innerHTML = "Welcome to my fan page " + value;
+        }
+    </script>
 </body>
 </html>

@@ -18,7 +18,7 @@
             width: 250px;
             height:250px;
             margin:auto;
-            margin-top: 300px;
+            margin-top: 25%;
             border: 2px solid rgb(80, 9, 80);
             background-image:radial-gradient(rgb(245, 150, 245),rgb(192, 71, 192),purple);
             color:white;
@@ -56,17 +56,15 @@
         <input type="button" value="Accept" onclick="answers(); return false;">  <br>
         Note : The password must be 8 characters or more.
     </div>
-    <div style="height:100px; width:150px; margin:auto; margin-top:1500px; text-align:center; color:aliceblue;">
+    <div style="height:100px; width:150px; margin:auto; margin-top:5000px; text-align:center; color:aliceblue;">
         <img src = 'chibi.png' alt="chibi koshikage kira" style="height:150px;" onclick="chibiSound()">
         <audio src="firstbomb.mp3" id="explosion"></audio>
         <p style="padding-left:0px;">click me for a surprise</p>
     </div>
 
 
-    </div>
-
-
     <script>
+
         function chibiSound() {
             let explosion = document.getElementById('explosion');
             explosion.load();
@@ -88,16 +86,19 @@
                 password_again.type = "password"
             }
         }
-        function quiz() {
-        }
         function answers() {
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
             var password_again = document.getElementById('password_again').value;
+            localStorage.setItem('username', username);
             console.log(username, password, password_again);
             if (username!=='' && password!== '' && password_again!=='') {
                 if (password.length >= 8) {
                     if (password === password_again) {
+                        //stores the username in the local storage
+                        var input = document.getElementById('username');
+                        localStorage.setItem('username', input);
+
                         alert('Hello ' + username + '. Welcome to the site.')
                         window.location.href = 'mainpage.html';
                     } else {
