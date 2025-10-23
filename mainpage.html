@@ -4,26 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
+    <style>
+        body {
+            background-image:url(./jjba.jpeg);
+            background-size:cover;
+            background-attachment: fixed;
+            background-repeat:no-repeat;
+        }
+        #yes {
+            text-align: center;
+            font-family: "papyrus";
+            margin:0px;
+            margin-top:50px;
+            font-size:100px;
+            color:black;
+        }
+        #sixseven {
+            text-align: center;
+            font-family: "papyrus";
+            font-size:50px;
+            margin:0px;
+            color:black;
+        }
+    </style>
 </head>
 <body>
-    <p id="value"></p>
+    <div style='height:100px; width:50px; margin-left:45px; float: left;''>
+        <image src="part4-jojo.gif" style="height:150px; width:150px; margin:0px;"> </image>
+    </div>
+    <p id="yes"></p>
+    <p id = 'sixseven'> Try to find the egg</p>
     <div>
-        <input type = "button" value= "Go Back to Log In" onclick = "location.href = 'formulaire.html';">  <!-- When clicking on the button, you go back to the log in page. location.href sets the URL of the current page that the person is viewing. -->
+        <input type = "button" value= "Go Back to Log In"style='position:fixed; bottom:15px; left:15px;' onclick = "location.href = 'formulaire.html'">  
+        <!-- When clicking on the button, you go back to the log in page. location.href sets the URL of the current page that the person is viewing. -->
     </div>
-    私の名前は吉良良景です。 私は33歳です。 私の家はすべての別荘がある森王の北東部にあり、私は結婚していません。 私は亀湯百貨店の従業員として働いており、遅くとも午後8時までに毎日家に帰ります。 私は喫煙しませんが、時々飲みます。
+    <div id='eggies' style="height:50px; width:90%; margin-left:45px;"> 
 
-    私は午後11時までにベッドに横たわり、どのような場合でも8時間の睡眠を確保します。 コップ1杯の温かい牛乳を飲んで寝る前に約20分間ストレッチをした後、私は通常、朝まで眠ることに問題はありません。 赤ちゃんのように、朝は疲れもストレスもなく目が覚めます。 前回の検査で問題はなかったと言われました。
-
-    私は非常に静かな生活をしたい人だと説明しようとしています。 私は、勝ち負けのような敵に悩まされないように気をつけています。 それが私が社会に対処する方法であり、それが私に幸福をもたらすことを知っています。 しかし、もし私が戦うなら、誰にも負けないでしょう。 <br>
-    <div style="height:100px; width:150px; margin:auto;">
-        <image src="part4-jojo.gif" style="height:150px; width:150px; margin:auto;"> </image>
     </div>
+
     <script>
         //when the page loads, it takes the username from the local storage and writes it.
-        window.onload = function() {
-            var value = localStorage.getItem('myValue');
-            document.getElementById("value").innerHTML = "Welcome to my fan page " + value;
+        for(let i = 0; i < 108; i++) {
+            document.write("<image src='egg.png' style='height:150px;width:150px; margin:0px;'> </image>");
+            document.getElementById('eggies');
         }
+        var stored = localStorage.getItem('myValue');
+        document.getElementById("yes").innerHTML = "Welcome to my fan page " + stored;
     </script>
 </body>
 </html>
