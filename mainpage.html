@@ -10,46 +10,39 @@
             background-size:cover;
             background-attachment: fixed;
             background-repeat:no-repeat;
+            /* The background image does not repeat, covers the full screen and does not move when scrolling. In case the screen is too big for the background image, the background colour is used to fill the missing area*/
         }
-        #yes {
+
+        #welcome {
             text-align: center;
             font-family: "papyrus";
             margin:0px;
             margin-top:50px;
             font-size:100px;
             color:black;
-        }
-        #sixseven {
-            text-align: center;
-            font-family: "papyrus";
-            font-size:50px;
-            margin:0px;
-            color:black;
+            /* The welcome text is black, centered, has a specific font and very big. */
         }
     </style>
 </head>
 <body>
+    <!-- Put a gif on the left of the welcome text.-->
+    <!-- HELP FROM : https://www.w3schools.com/html/html_images.asp -->
     <div style='height:100px; width:50px; margin-left:45px; float: left;''>
-        <image src="part4-jojo.gif" style="height:150px; width:150px; margin:0px;"> </image>
+        <image src="part4-jojo.gif" style="height:150px; width:150px;"> </image>
     </div>
-    <p id="yes"></p>
-    <p id = 'sixseven'> Try to find the egg</p>
+    <p id="welcome"></p>
+    <!-- Where the welcome text is put -->
     <div>
         <input type = "button" value= "Go Back to Log In"style='position:fixed; bottom:15px; left:15px;' onclick = "location.href = 'formulaire.html'">  
-        <!-- When clicking on the button, you go back to the log in page. location.href sets the URL of the current page that the person is viewing. -->
-    </div>
-    <div id='eggies' style="height:50px; width:90%; margin-left:45px;"> 
-
+        <!-- When clicking on the button, you go back to the log in page. location.href sets the URL of the current page that the person is viewing. The button is fixed on the screen even when you scroll.-->
+        <!-- HELP FROM : https://www.cloudsurph.com/how-to-pass-variables-from-an-html-page-to-another-with-javascript/ -->
     </div>
 
     <script>
-        //when the page loads, it takes the username from the local storage and writes it.
-        for(let i = 0; i < 108; i++) {
-            document.write("<image src='egg.png' style='height:150px;width:150px; margin:0px;'> </image>");
-            document.getElementById('eggies');
-        }
+        //when the page loads, it takes the username from the local storage and prints it. 
+        // HELP FROM : https://www.cloudsurph.com/how-to-pass-variables-from-an-html-page-to-another-with-javascript/
         var stored = localStorage.getItem('myValue');
-        document.getElementById("yes").innerHTML = "Welcome to my fan page " + stored;
+        document.getElementById("welcome").innerHTML = "Welcome to my fan page " + stored;
     </script>
 </body>
 </html>
